@@ -1,8 +1,10 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
 
     public static void adminMenu(){
+
         Scanner scanner = new Scanner(System.in);
         System.out.println("Press 1 to add a doctor, press 2 to add a doctor availability, and press 3 to exit");
         int userObjective = scanner.nextInt();

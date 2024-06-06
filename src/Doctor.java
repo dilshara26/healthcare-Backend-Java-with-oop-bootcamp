@@ -13,7 +13,8 @@ public class Doctor {
         this.contactNumber = contactNumber;
     }
     public boolean isPhysician() {
-        return specialization.toLowerCase().endsWith("physician"); // Check if specialization ends with "physician" (case-insensitiveness is done by converting to lowercase)
+        Boolean isEndingWithPhysician = this.specialization.endsWith("physician");
+        return isEndingWithPhysician;
     }
 
 }

@@ -13,6 +13,7 @@ public class Patient {
     }
 
     public char getPatientType() {
-        return patientId.charAt(0); // Get the first character of the patient ID
+        char firstLetter = this.patientId.charAt(0);
+        return firstLetter; // Get the first character of the patient ID
     }
 }
