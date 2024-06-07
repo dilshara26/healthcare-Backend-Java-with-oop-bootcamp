@@ -1,7 +1,11 @@
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
+import java.util.UUID;
 
 public class Main {
+
+    public static ArrayList<Doctor> allDoctors = new ArrayList<>();
 
     public static void adminMenu(){
 
@@ -9,7 +13,23 @@ public class Main {
         System.out.println("Press 1 to add a doctor, press 2 to add a doctor availability, and press 3 to exit");
         int userObjective = scanner.nextInt();
         if(userObjective == 1){
-            System.out.println("Add a doctor");
+//            get the relevant data
+            Scanner sc = new Scanner(System.in);
+            System.out.println("Enter your Name: ");
+            String name = sc.nextLine();
+            System.out.println("Enter your birthday: ");
+            String birthday = sc.nextLine();
+            System.out.println("Enter your Name: ");
+            String specialization = sc.nextLine();
+            System.out.println("Enter your Name: ");
+            String contact = sc.nextLine();
+
+            Random random = new Random();
+            Doctor tempDoctor = new Doctor(random.nextInt(), name, birthday,specialization,contact);
+
+            allDoctors.add(tempDoctor);
+
+
         } else if (userObjective==2) {
             System.out.println("Add doctor availability");
         } else if (userObjective==3) {
@@ -25,7 +45,10 @@ public class Main {
         System.out.println("Press 1 to view doctors, press 2 to book an appointment, press 3 to view a selected doctor’s bookings, and press 4 to exit");
         int userObjective = scanner.nextInt();
         if(userObjective == 1){
-            System.out.println("view doctors list");
+            for (Doctor doc: allDoctors) {
+                System.out.println(doc.name + " has a specialization of " + doc.specialization);
+            }
+
         } else if (userObjective==2) {
             System.out.println("Book an appointment");
         } else if (userObjective==3) {
@@ -60,6 +83,8 @@ public class Main {
 
 
     public static void main(String[] args) {
+
+        //run();
 
         // Sample Doctor objects
         Doctor doctor1 = new Doctor(101, "John Smith", "1970-01-01", "Neurophysician", "123-456-7890");
