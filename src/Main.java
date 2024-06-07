@@ -84,30 +84,29 @@ public class Main {
 
     public static void main(String[] args) {
 
-        //run();
-
-        // Sample Doctor objects
-        Doctor doctor1 = new Doctor(101, "John Smith", "1970-01-01", "Neurophysician", "123-456-7890");
-        Doctor doctor2 = new Doctor(102, "Jane Doe", "1980-02-02", "Cardiologist", "987-654-3210");
-
-        // Test doctor methods
-        System.out.println("Doctor 1:");
-        System.out.println("Is Physician: " + doctor1.isPhysician());
-
-        System.out.println("\nDoctor 2:");
-        System.out.println("Is Physician: " + doctor2.isPhysician());
-
-        // Sample Patient objects
-        Patient patient1 = new Patient("T-1234", "Alice Johnson", "2000-03-03", "555-123-4567");
-        Patient patient2 = new Patient("D-5678", "Bob Williams", "1990-04-04", "888-789-0123");
-
-        // Test patient methods
-        System.out.println("\nPatient 1:");
-        System.out.println("Patient Type: " + patient1.getPatientType());
-
-        System.out.println("\nPatient 2:");
-        System.out.println("Patient Type: " + patient2.getPatientType());
-//        run();
+        run();
+//
+//        // Sample Doctor objects
+//        Doctor doctor1 = new Doctor(101, "John Smith", "1970-01-01", "Neurophysician", "123-456-7890");
+//        Doctor doctor2 = new Doctor(102, "Jane Doe", "1980-02-02", "Cardiologist", "987-654-3210");
+//
+//        // Test doctor methods
+//        System.out.println("Doctor 1:");
+//        System.out.println("Is Physician: " + doctor1.isPhysician());
+//
+//        System.out.println("\nDoctor 2:");
+//        System.out.println("Is Physician: " + doctor2.isPhysician());
+//
+//        // Sample Patient objects
+//        Patient patient1 = new Patient("T-1234", "Alice Johnson", "2000-03-03", "555-123-4567");
+//        Patient patient2 = new Patient("D-5678", "Bob Williams", "1990-04-04", "888-789-0123");
+//
+//        // Test patient methods
+//        System.out.println("\nPatient 1:");
+//        System.out.println("Patient Type: " + patient1.getPatientType());
+//
+//        System.out.println("\nPatient 2:");
+//        System.out.println("Patient Type: " + patient2.getPatientType());
 
 
     }
