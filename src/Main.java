@@ -6,7 +6,6 @@ import java.util.UUID;
 public class Main {
 
     public static ArrayList<Doctor> allDoctors = new ArrayList<>();
-
     public static void adminMenu(){
 
         boolean runAdmin = true;
@@ -125,6 +124,14 @@ public class Main {
 //
 //        System.out.println("\nPatient 2:");
 //        System.out.println("Patient Type: " + patient2.getPatientType());
+
+//        ------------
+//        ------------
+//        Doctor sampleDoc = new Doctor(223,"Saman Kumara","22.05.1987","Gynocologist","077-333-9900");
+//        Patient samplePatient = new Patient("T-12", "Alice Johnson", "2000-03-03", "555-123-4567");
+//        allDoctors.add(sampleDoc);
+//        allPatients.add(samplePatient);
+//        Appointment sampleAppointment = new Appointment(sampleDoc,samplePatient,"No Notes",new Date(2024, 6,12),"No Time Yet");
 
 
     }
