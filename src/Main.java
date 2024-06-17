@@ -1,13 +1,8 @@
-import java.util.ArrayList;
-import java.util.Random;
-import java.util.Scanner;
-import java.util.UUID;
+import javax.print.Doc;
+import java.util.*;
 
 public class Main {
-
-    public static ArrayList<Doctor> allDoctors = new ArrayList<>();
     public static void adminMenu(){
-
         boolean runAdmin = true;
         while (runAdmin){
             Scanner scanner = new Scanner(System.in);
@@ -15,24 +10,14 @@ public class Main {
             int userObjective = scanner.nextInt();
             if(userObjective == 1){
 //            get the relevant data
-                Scanner sc = new Scanner(System.in);
-                System.out.println("Enter your Name: ");
-                String name = sc.nextLine();
-                System.out.println("Enter your birthday: ");
-                String birthday = sc.nextLine();
-                System.out.println("Enter your Specialization: ");
-                String specialization = sc.nextLine();
-                System.out.println("Enter your Contact: ");
-                String contact = sc.nextLine();
-
-                Random random = new Random();
-                Doctor tempDoctor = new Doctor(random.nextInt(), name, birthday,specialization,contact);
-
-                allDoctors.add(tempDoctor);
+                Controller.addDoctor();
+                System.out.println("Doctor is added");
 
 
             } else if (userObjective==2) {
-                System.out.println("Add doctor availability");
+                //add doc availability
+               Controller.addAvailabilityForDoctor();
+
             } else if (userObjective==3) {
                 runAdmin = false;
                 System.out.println("Exit");
@@ -40,7 +25,6 @@ public class Main {
             else {
                 System.out.println("Invalid");
             }
-
         }
 
 
@@ -50,21 +34,20 @@ public class Main {
 
         while (runPatient){
             Scanner scanner = new Scanner(System.in);
-            System.out.println("Press 1 to view doctors, press 2 to book an appointment, press 3 to view a selected doctor’s bookings, and press 4 to exit");
+            System.out.println("Press 1 to view doctors, press 2 to book an appointment, press 3 to view a selected doctor’s bookings, and press 4 to exit, press 5 to add a Patient");
             int userObjective = scanner.nextInt();
             if(userObjective == 1){
-                for (Doctor doc: allDoctors) {
-                    System.out.println(doc.name + " has a specialization of " + doc.specialization);
-                }
-
+                Controller.viewAllDoctors();
             } else if (userObjective==2) {
-                System.out.println("Book an appointment");
+                Controller.bookAppointment();
             } else if (userObjective==3) {
                 System.out.println("View a selected Doctor");
             } else if (userObjective==4) {
                 runPatient= false;
                 System.out.println("Exit");
 
+            } else if (userObjective==5) {
+                Controller.addPatient();
             } else {
                 System.out.println("Invalid");
             }
@@ -100,6 +83,10 @@ public class Main {
 
 
     public static void main(String[] args) {
+        Doctor sampleDoc = new Doctor(223,"Saman Kumara","22.05.1987","Gynocologist","077-333-9900");
+        Patient samplePatient = new Patient("T-12", "Alice Johnson",  "555-123-4567");
+        Controller.allDoctors.add(sampleDoc);
+        Controller.allPatients.add(samplePatient);
 
         run();
 //

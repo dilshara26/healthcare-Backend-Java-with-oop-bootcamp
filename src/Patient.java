@@ -4,11 +4,10 @@ public class Patient {
     public String birthday;
     public String contactNumber;
 
-    public Patient(String patientId, String name, String birthday, String contactNumber) {
+    public Patient(String patientId, String name, String contactNumber) {
 
         this.patientId = patientId;
         this.name = name;
-        this.birthday = birthday;
         this.contactNumber = contactNumber;
     }
 
