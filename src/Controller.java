@@ -1,9 +1,7 @@
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.Random;
-import java.util.Scanner;
+import java.util.*;
 
 public class Controller {
+    private static int NUMBER_OF_SLOTS_PER_DAY = 2;
     public static ArrayList<Doctor> allDoctors = new ArrayList<>();
     public static ArrayList<Patient> allPatients = new ArrayList<>();
     public static void addDoctor(){
@@ -95,9 +93,24 @@ public class Controller {
 //        check the availability and slots
 //        calculate appointment Time
 //        make the appointment
-        Appointment appointment = new Appointment(selectedDoc,selectedPatient,"No Notes",appointmentDate,"");
-        selectedDoc.setAppointment(appointment,appointmentDate);
-        System.out.println(selectedDoc.allAppointments.toString());
+        Boolean isAvailable = checkAvailability(selectedDoc,appointmentDate);
+
+        if(isAvailable){
+            String bookingTime = getTimeForaBooking(selectedDoc,appointmentDate);
+            if(bookingTime != null){
+                System.out.println("Enter any special note you want to add: ");
+                String notes = scanner.next();
+                Appointment newAppointment = new Appointment(selectedDoc,getPatientById(patientId),notes,appointmentDate,bookingTime);
+                selectedDoc.setAppointment(newAppointment, appointmentDate);
+            }
+            else{
+                System.out.println("All the slots are filled for the doctor ");
+            }
+
+        }
+        else{
+            System.out.println("Doctor is not available on the day you selected");
+        }
     }
 
     public static Patient getPatientById(String id){
@@ -116,6 +129,33 @@ public class Controller {
         }
         System.out.println("No doctor Found");
         return null;
+    }
+
+
+    private static String getTimeForaBooking(Doctor selectedDoctor, Date dateOfBooking){
+        // if atleast one appointment already exist for the day
+        for (Map.Entry<Date,ArrayList<Appointment>> appointment: selectedDoctor.allAppointments.entrySet()) {
+            if(appointment.getKey().equals(dateOfBooking)){
+                if(appointment.getValue().size() >= NUMBER_OF_SLOTS_PER_DAY){
+                    return null;
+                }
+                System.out.println("We can make an appointment");
+                int numberOfSlots = appointment.getValue().size();
+                String time = String.valueOf(17+numberOfSlots) + ":00";
+                return time;
+            }
+        }
+        //as its the first time for appointment
+        return "17:00";
+    }
+    private static Boolean checkAvailability(Doctor selectedDoctor, Date dateOfBooking){
+
+        for (Date day : selectedDoctor.availabilities){
+            if(day.equals(dateOfBooking)){
+                return true;
+            }
+        }
+        return  false;
     }
 
 }

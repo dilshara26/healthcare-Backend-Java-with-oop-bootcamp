@@ -2,16 +2,17 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 
-public class Doctor {
+public class Doctor extends Person {
     public int doctorId;
-    public String name;
+
     public String birthday;
     public String specialization;
-    public String contactNumber;
+
     public ArrayList<Date> availabilities;
     public HashMap<Date,ArrayList<Appointment>> allAppointments = new HashMap<>();
 
     public Doctor(int doctorId, String name, String birthday, String specialization, String contactNumber) {
+        super(name, contactNumber);
         this.doctorId = doctorId;
         this.name = name;
         this.birthday = birthday;
