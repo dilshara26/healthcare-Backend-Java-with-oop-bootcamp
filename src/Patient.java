@@ -1,15 +1,16 @@
-public class Patient {
-    public String patientId;
-    public String name;
-    public String birthday;
-    public String contactNumber;
+public class Patient extends Person {
+
+    private String patientId;
 
     public Patient(String patientId, String name, String contactNumber) {
-
+        super(name,contactNumber);
         this.patientId = patientId;
-        this.name = name;
-        this.contactNumber = contactNumber;
+
     }
+    public String getPatientId(){
+        return this.patientId;
+    }
+
 
     public char getPatientType() {
         char firstLetter = this.patientId.charAt(0);
