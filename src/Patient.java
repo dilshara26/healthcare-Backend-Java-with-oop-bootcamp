@@ -10,6 +10,16 @@ public class Patient extends Person {
     public String getPatientId(){
         return this.patientId;
     }
+    public void greeting(){
+        getName();
+        System.out.println("Hello +" + this.getName());
+    }
+    @Override
+    public String getName(){
+        System.out.println("Returning Name");
+        System.out.println(this.getName());
+        return this.getName();
+    }
 
 
     public char getPatientType() {

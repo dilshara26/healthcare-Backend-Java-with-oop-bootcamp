@@ -62,7 +62,7 @@ public class Main {
 
         while (runMain){
             Scanner scanner = new Scanner(System.in);
-            System.out.println("If you are a hospital administrator please press 1, If you are a patient please press 2, Press 3 to exit");
+             System.out.println("If you are a hospital administrator please press 1, If you are a patient please press 2, Press 3 to exit");
             int userType = scanner.nextInt();
 
             if(userType == 1){
@@ -87,6 +87,8 @@ public class Main {
         Patient samplePatient = new Patient("T-12", "Alice Johnson",  "555-123-4567");
         Controller.allDoctors.add(sampleDoc);
         Controller.allPatients.add(samplePatient);
+        System.out.println(samplePatient.getName());
+
 
         run();
 //

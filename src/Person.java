@@ -1,12 +1,13 @@
 public abstract class Person {
 
-    private String name;
+    public String name;
     private String contactNumber;
 
     public Person(String name, String contactNumber) {
         this.name = name;
         this.contactNumber = contactNumber;
     }
+    public abstract void greeting();
     public String getName() {
         return name;
     }

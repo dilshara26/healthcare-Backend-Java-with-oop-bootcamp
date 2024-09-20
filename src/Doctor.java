@@ -15,7 +15,18 @@ public class Doctor extends Person {
         this.birthday = birthday;
         this.specialization = specialization;
         availabilities = new ArrayList<>();
+    }
+    public Doctor(int doctorId, String name, String birthday, String contactNumber){
+        super(name,contactNumber);
+        this.doctorId = doctorId;
+        this.birthday = birthday;
+        this.specialization = "General Doctor";
+        availabilities = new ArrayList<>();
+    }
+    
 
+    public void greeting(){
+        System.out.println("Hello Doctor +" + this.getName());
     }
     public boolean isPhysician() {
         Boolean isEndingWithPhysician = this.specialization.endsWith("physician");
